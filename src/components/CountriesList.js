@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 import { getCountries } from '../redux/countries/countriesSlice';
 import Country from './Country';
 
-console.log('------------country list');
-
 function CountriesList() {
   const countries = useSelector((store) => store.countries);
 
@@ -17,19 +15,20 @@ function CountriesList() {
   }, [dispatch, countries]);
 
   if (!countries || countries.status === 'Loading') {
-    return (
-      <p className="">Loading...</p>
-    );
+    return <p>Loading...</p>;
   }
+
+  const { geonames } = countries.countriesArr[0].data;
 
   return (
     <section>
-      <ul className="">
-        {countries.countriesArr.map((country, idx) => (
+      <ul>
+        {geonames.map((country, idx) => (
           <Country
-            key={country.id}
-            id={country.id}
-            name={country.name}
+            key={country.geonameId}
+            id={country.geonameId}
+            name={country.countryName}
+            // Include other properties you want to pass
             symbol={country.symbol}
             img={country.img}
             price={country.price}
