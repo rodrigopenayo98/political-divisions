@@ -1,20 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Cambiamos la URL de la API a la que proporcionaste para países
-const API_URL = 'https://rawcdn.githack.com/kamikazechaser/administrative-divisions-db/master/api';
-
-// Creamos una acción asíncrona para obtener los datos de países
-export const getCountries = createAsyncThunk('countries/getCountries', async (countryCode) => {
+const API_URL = 'http://api.geonames.org/countryInfo?username=rodrigopenayo98';
+console.log('------------------slice');
+export const getCountries = createAsyncThunk('countries/getCountries', async () => {
   try {
-    const response = await axios.get(`${API_URL}/${countryCode}.json`);
-    return response.data; // Retorna los datos del país
+    const response = await axios.get(API_URL);
+    console.log(response);
+    return response.data.geonames;
   } catch (error) {
-    throw new Error(error.message); // Lanza un error si ocurre algún problema
+    console.error('Error en la solicitud API:', error);
+    throw new Error(error.message);
   }
 });
 
-// Definimos el estado inicial para el slice de países
 const initialState = {
   countriesArr: [],
   filteredList: [],
@@ -22,26 +21,26 @@ const initialState = {
   error: null,
 };
 
-// Creamos el slice de países con sus reducers y extraReducers
 const countriesSlice = createSlice({
   name: 'countries',
   initialState,
   reducers: {
     updateFoundList: (state, action) => {
-      const filteredList = state.countriesArr.filter((country) => (
-        country.name.toLowerCase().includes(action.payload.toLowerCase())
-      ));
+      const filteredList = state.countriesArr.filter(
+        (country) => country.countryName.toLowerCase().includes(action.payload.toLowerCase()),
+      );
       state.filteredList = filteredList;
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(getCountries.fulfilled, (state, action) => {
         state.status = 'fulfilled';
-        state.countriesArr = action.payload; // Actualiza la lista de países con los datos obtenidos
+        state.countriesArr = action.payload;
       })
       .addCase(getCountries.pending, (state) => {
-        state.status = 'Loading';
+        state.status = 'loading';
       })
       .addCase(getCountries.rejected, (state, action) => {
         state.status = 'rejected';
@@ -50,6 +49,5 @@ const countriesSlice = createSlice({
   },
 });
 
-// Exportamos las acciones y el reducer de países
 export const { updateFoundList } = countriesSlice.actions;
 export default countriesSlice.reducer;

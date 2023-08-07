@@ -3,17 +3,20 @@ import { useEffect } from 'react';
 import { getCountries } from '../redux/countries/countriesSlice';
 import Country from './Country';
 
-function CountryList() {
+console.log('------------country list');
+
+function CountriesList() {
   const countries = useSelector((store) => store.countries);
-  const dispatch = useDispatch;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (countries.countriesArr.length === 0) {
+    if (!countries || countries.countriesArr.length === 0) {
       dispatch(getCountries());
     }
-  }, [dispatch, countries.countriesArr.length]);
+  }, [dispatch, countries]);
 
-  if (countries.status === 'Loading') {
+  if (!countries || countries.status === 'Loading') {
     return (
       <p className="">Loading...</p>
     );
@@ -21,39 +24,22 @@ function CountryList() {
 
   return (
     <section>
-      {countries.filteredList.length === 0 ? (
-        <ul className="">
-          {countries.countriesArr.map((country, idx) => (
-            <Country
-              key={country.id}
-              id={country.id}
-              name={country.name}
-              symbol={country.symbol}
-              img={country.img}
-              price={country.price}
-              change={country.change}
-              index={idx}
-            />
-          ))}
-        </ul>
-      ) : (
-        <ul className="">
-          {countries.countriesArr.map((country, idx) => (
-            <Country
-              key={country.id}
-              id={country.id}
-              name={country.name}
-              symbol={country.symbol}
-              img={country.img}
-              price={country.price}
-              change={country.change}
-              index={idx}
-            />
-          ))}
-        </ul>
-      )}
+      <ul className="">
+        {countries.countriesArr.map((country, idx) => (
+          <Country
+            key={country.id}
+            id={country.id}
+            name={country.name}
+            symbol={country.symbol}
+            img={country.img}
+            price={country.price}
+            change={country.change}
+            index={idx}
+          />
+        ))}
+      </ul>
     </section>
   );
 }
 
-export default CountryList;
+export default CountriesList;
