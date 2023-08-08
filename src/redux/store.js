@@ -3,7 +3,7 @@ import countriesReducer from './countries/countriesSlice';
 
 const store = configureStore({
   reducer: {
-    coins: countriesReducer,
+    countries: countriesReducer,
   },
 });
 

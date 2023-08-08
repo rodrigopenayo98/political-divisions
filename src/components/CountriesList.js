@@ -1,24 +1,32 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { getCountries } from '../redux/countries/countriesSlice';
 import Country from './Country';
 
+const StatusType = {
+  LOADING: 'LOADING',
+  ERROR: 'ERROR',
+  SUCCESS: 'SUCCESS',
+};
+
 function CountriesList() {
   const countries = useSelector((store) => store.countries);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!countries || countries.countriesArr.length === 0) {
-      dispatch(getCountries());
-    }
-  }, [dispatch, countries]);
+    dispatch(getCountries());
+  }, [dispatch]);
 
-  if (!countries || countries.status === 'Loading') {
+  const { geonames } = useMemo(() => {
+    if (!countries || countries.status === StatusType.LOADING) {
+      return { geonames: [] };
+    }
+    return countries;
+  }, [countries]);
+
+  if (!geonames) {
     return <p>Loading...</p>;
   }
-
-  const { geonames } = countries.countriesArr[0].data;
 
   return (
     <section>
