@@ -6,9 +6,9 @@ function CountriesList() {
   const countries = useSelector((store) => store.countries);
 
   if (!countries || countries.status === StatusType.LOADING) {
-    return <span>Loading...</span>;
+    return <span>Cargando...</span>;
   }
-  console.log(countries);
+
   return (
     <section>
       <ul>
@@ -17,8 +17,7 @@ function CountriesList() {
             key={country.geonameId}
             index={index}
             countryName={country.countryName}
-            img=""
-            countryCode={country.geonamesId}
+            countryCode={country.countryCode}
             currencyCode={country.currencyCode}
             areaInSqKm={country.areaInSqKm}
             continentName={country.continentName}
