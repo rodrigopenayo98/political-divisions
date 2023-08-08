@@ -16,7 +16,7 @@ function CountriesList() {
           <Country
             key={country.geonameId}
             index={index}
-            name={country.countryName}
+            countryName={country.countryName}
             img=""
             countryCode={country.geonamesId}
             currencyCode={country.currencyCode}

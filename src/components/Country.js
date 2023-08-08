@@ -45,7 +45,7 @@ export default Country;
 
 Country.propTypes = {
   countryCode: PropTypes.number,
-  countryName: PropTypes.string,
+  countryName: PropTypes.string.isRequired,
   currencyCode: PropTypes.string.isRequired,
   areaInSqKm: PropTypes.string.isRequired,
   continentName: PropTypes.string.isRequired,
@@ -57,5 +57,4 @@ Country.propTypes = {
 Country.defaultProps = {
   countryCode: 0,
   population: 'not specificed',
-  countryName: 'not specificed',
 };
