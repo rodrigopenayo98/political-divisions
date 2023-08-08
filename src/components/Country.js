@@ -2,16 +2,20 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 function Country({
-  countryCode, countryName, currencyCode, areaInSqKm, continentName, population, img, index,
+  countryCode: geonamesId,
+  countryName,
+  currencyCode,
+  areaInSqKm,
+  continentName,
+  population,
+  img,
+  index,
 }) {
   const differentStyle = index % 4 === 1 || index % 4 === 2;
   const style = differentStyle ? 'bg-blue-3' : 'bg-blue-4';
 
   return (
-    <NavLink
-      className={`country-card ${style}`} // Agrega tus propios nombres de clases aquí
-      to={`country/${countryCode}`}
-    >
+    <NavLink className={`country-card ${style}`} to={`country/${geonamesId}`}>
       <div className="country-info">
         <img className="country-image" src={img} alt={countryName} />
         <p className="country-name">{countryName}</p>
@@ -40,12 +44,18 @@ function Country({
 export default Country;
 
 Country.propTypes = {
-  countryCode: PropTypes.string.isRequired,
-  countryName: PropTypes.string.isRequired,
+  countryCode: PropTypes.number,
+  countryName: PropTypes.string,
   currencyCode: PropTypes.string.isRequired,
-  areaInSqKm: PropTypes.number.isRequired,
+  areaInSqKm: PropTypes.string.isRequired,
   continentName: PropTypes.string.isRequired,
-  population: PropTypes.number.isRequired,
+  population: PropTypes.string,
   img: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+};
+
+Country.defaultProps = {
+  countryCode: 0,
+  population: 'not specificed',
+  countryName: 'not specificed',
 };

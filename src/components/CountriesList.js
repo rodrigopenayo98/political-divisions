@@ -1,47 +1,28 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useMemo } from 'react';
-import { getCountries } from '../redux/countries/countriesSlice';
+import { useSelector } from 'react-redux';
 import Country from './Country';
-
-const StatusType = {
-  LOADING: 'LOADING',
-  ERROR: 'ERROR',
-  SUCCESS: 'SUCCESS',
-};
+import StatusType from './StatusTypes';
 
 function CountriesList() {
   const countries = useSelector((store) => store.countries);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getCountries());
-  }, [dispatch]);
-
-  const { geonames } = useMemo(() => {
-    if (!countries || countries.status === StatusType.LOADING) {
-      return { geonames: [] };
-    }
-    return countries;
-  }, [countries]);
-
-  if (!geonames) {
-    return <p>Loading...</p>;
+  if (!countries || countries.status === StatusType.LOADING) {
+    return <span>Loading...</span>;
   }
-
+  console.log(countries);
   return (
     <section>
       <ul>
-        {geonames.map((country, idx) => (
+        {countries?.countriesArr.map((country, index) => (
           <Country
             key={country.geonameId}
-            id={country.geonameId}
+            index={index}
             name={country.countryName}
-            // Include other properties you want to pass
-            symbol={country.symbol}
-            img={country.img}
-            price={country.price}
-            change={country.change}
-            index={idx}
+            img=""
+            countryCode={country.geonamesId}
+            currencyCode={country.currencyCode}
+            areaInSqKm={country.areaInSqKm}
+            continentName={country.continentName}
+            population={country.population}
           />
         ))}
       </ul>
