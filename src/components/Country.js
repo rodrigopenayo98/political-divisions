@@ -18,7 +18,7 @@ function Country({
 
   const flagImageUrl = getFlagImageUrl(countryCode);
 
-  const firstElement = (
+  const countryLink = (
     <NavLink className="country-info" to={`country/${geonameId}`}>
       <img className="country-image" src={flagImageUrl} alt={countryName} />
       <p className="country-name">{countryName}</p>
@@ -26,22 +26,22 @@ function Country({
     </NavLink>
   );
 
-  const secondElement = (
+  const countryDetails = (
     <div className="country-details">
       <p className="area">
-        Surface:
+        Superficie:
         {' '}
         {areaInSqKm}
-        km²
         {' '}
+        km²
       </p>
       <p className="continent">
-        Continent:
+        Continente:
         {' '}
         {continentName}
       </p>
       <p className="population">
-        Population:
+        Población:
         {' '}
         {population}
       </p>
@@ -49,19 +49,12 @@ function Country({
   );
 
   return (
-    <div className={`country-card ${style}`}>
-      {index % 2 === 0 ? (
-        <>
-          {firstElement}
-          {secondElement}
-        </>
-      ) : (
-        <>
-          {firstElement}
-          {secondElement}
-        </>
-      )}
-    </div>
+    <li>
+      <div className={`country-card ${style}`}>
+        {countryLink}
+        {countryDetails}
+      </div>
+    </li>
   );
 }
 
