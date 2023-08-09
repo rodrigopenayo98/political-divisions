@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import getFlagImageUrl from './Flags';
 
 function Country({
+  geonameId,
   countryCode, // Cambia countryCode a la variable directamente
   countryName,
   currencyCode,
@@ -18,7 +19,7 @@ function Country({
   const flagImageUrl = getFlagImageUrl(countryCode); // Usa countryCode directamente
 
   return (
-    <NavLink className={`country-card ${style}`} to={`country/${countryCode}`}>
+    <NavLink className={`country-card ${style}`} to={`country/${geonameId}`}>
       <div className="country-info">
         <img className="country-image" src={flagImageUrl} alt={countryName} />
         <p className="country-name">{countryName}</p>
@@ -52,6 +53,7 @@ Country.propTypes = {
   continentName: PropTypes.string.isRequired,
   population: PropTypes.string,
   index: PropTypes.number.isRequired,
+  geonameId: PropTypes.number.isRequired,
 };
 
 Country.defaultProps = {

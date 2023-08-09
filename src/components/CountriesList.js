@@ -15,6 +15,7 @@ function CountriesList() {
         {countries?.countriesArr.map((country, index) => (
           <Country
             key={country.geonameId}
+            geonameId={country.geonameId}
             index={index}
             countryName={country.countryName}
             countryCode={country.countryCode}

@@ -1,11 +1,16 @@
 .country-card{
   display: flex;
   border: solid 1px black;
+  background-color: bisque;
 }
 
 .country-info{
   width: 250px;
   padding: 15px;
+  background-color: bisque;
+}
+
+.country-details{
   background-color: bisque;
 }
 
