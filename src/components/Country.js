@@ -17,7 +17,7 @@ function Country({
   const style = differentStyle ? 'bg-blue-3' : 'bg-blue-4';
 
   const flagImageUrl = getFlagImageUrl(countryCode); // Usa countryCode directamente
-
+  console.log('imagen en Country', flagImageUrl);
   return (
     <NavLink className={`country-card ${style}`} to={`country/${geonameId}`}>
       <div className="country-info">

@@ -3,13 +3,11 @@ import axios from 'axios';
 import StatusType from '../../components/StatusTypes';
 
 const API_URL = 'http://api.geonames.org/countryInfoJSON?username=rodrigopenayo98';
-console.log('------------------slice');
 export const getCountries = createAsyncThunk(
   'countries/getCountries',
   async () => {
     try {
       const response = await axios.get(API_URL);
-      console.log('dispatch', response.data.geonames);
       return response.data.geonames;
     } catch (error) {
       console.error('Error en la solicitud API:', error);

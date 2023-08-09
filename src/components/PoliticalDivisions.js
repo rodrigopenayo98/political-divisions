@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 function PoliticalDivisions({ geonameId }) {
   const [provinceData, setProvinceData] = useState([]);
+  const [countryName, setCountryName] = useState('');
 
   useEffect(() => {
     const urlProvinces = `http://api.geonames.org/childrenJSON?geonameId=${geonameId}&username=rodrigopenayo98`;
@@ -11,7 +12,8 @@ function PoliticalDivisions({ geonameId }) {
     axios.get(urlProvinces)
       .then((response) => {
         if (response.data.geonames && response.data.geonames.length > 0) {
-          setProvinceData(response.data.geonames);
+          setCountryName(response.data.geonames[0].countryName); // Set country name
+          setProvinceData(response.data.geonames.slice(1)); // Exclude the country from provinceData
         }
       })
       .catch((error) => {
@@ -21,21 +23,25 @@ function PoliticalDivisions({ geonameId }) {
 
   return (
     <div>
-      <h2>Divisiones Políticas</h2>
       {provinceData.length > 0 ? (
-        <ul>
-          {provinceData.map((province) => (
-            <li key={province.geonameId}>
-              Nombre de la Provincia:
-              {' '}
-              {province.toponymName}
-              <br />
-              Población Local:
-              {' '}
-              {province.population}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <h2>{countryName}</h2>
+          {' '}
+          {/* Display country name */}
+          <ul>
+            {provinceData.map((province) => (
+              <li key={province.geonameId}>
+                Province / State:
+                {' '}
+                {province.toponymName}
+                <br />
+                Population:
+                {' '}
+                {province.population}
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : (
         <p>No hay datos de provincia disponibles.</p>
       )}
