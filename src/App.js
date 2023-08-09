@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Countries />} />
-          <Route path="countries/:id" element={<SpecificCountry />} />
+          <Route path="country/:geonameId" element={<SpecificCountry />} />
         </Route>
       </Routes>
     </Router>

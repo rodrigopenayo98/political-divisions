@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import Country from './Country';
+import { Country } from './Country';
 import StatusType from './StatusTypes';
 
 function CountriesList() {

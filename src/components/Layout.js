@@ -1,13 +1,22 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './NavBar';
 import SearchForm from './SearchForm';
 
-const Layout = () => (
-  <div className="layout">
-    <Navbar />
-    <SearchForm />
-    <Outlet />
-  </div>
-);
+const Layout = () => {
+  const location = useLocation();
+
+  // Check if the current route is SpecificCountry
+  const isSpecificCountryRoute = location.pathname.includes('/country/');
+
+  return (
+    <div className="layout">
+      <Navbar />
+      {!isSpecificCountryRoute && <SearchForm />}
+      {' '}
+      {/* Conditionally render SearchForm */}
+      <Outlet />
+    </div>
+  );
+};
 
 export default Layout;

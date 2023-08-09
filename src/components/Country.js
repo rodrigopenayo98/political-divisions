@@ -59,4 +59,4 @@ Country.defaultProps = {
   population: 'not specificed',
 };
 
-export default Country;
+export { Country, getFlagImageUrl };
