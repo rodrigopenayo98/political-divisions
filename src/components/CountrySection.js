@@ -8,8 +8,8 @@ function CountrySection({ geonameId }) {
 
   return (
     <div>
+      <img src={flagImageUrl} alt="country-name" className="flag2" />
       <PoliticalDivisions geonameId={geonameId} />
-      <img src={flagImageUrl} alt="country-name" />
     </div>
   );
 }

@@ -12,3 +12,13 @@
 .country-image{
   width: 170px;
 }
+
+header{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.flag2{
+  width: 150px;
+}

@@ -5,15 +5,12 @@ import SearchForm from './SearchForm';
 const Layout = () => {
   const location = useLocation();
 
-  // Check if the current route is SpecificCountry
   const isSpecificCountryRoute = location.pathname.includes('/country/');
 
   return (
     <div className="layout">
       <Navbar />
       {!isSpecificCountryRoute && <SearchForm />}
-      {' '}
-      {/* Conditionally render SearchForm */}
       <Outlet />
     </div>
   );
