@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import getFlagImageUrl from './Flags';
 
 function PoliticalDivisions({ geonameId }) {
   const [provinceData, setProvinceData] = useState([]);
@@ -25,8 +26,10 @@ function PoliticalDivisions({ geonameId }) {
     <div>
       {provinceData.length > 0 ? (
         <div>
-          <h2>{countryName}</h2>
-          {' '}
+          <h2>
+            <img src={getFlagImageUrl(provinceData[0].countryCode)} alt="country-flag" className="flag2" />
+            {countryName}
+          </h2>
           {/* Display country name */}
           <ul>
             {provinceData.map((province) => (
