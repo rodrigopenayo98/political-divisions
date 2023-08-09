@@ -27,17 +27,17 @@ function Country({
       </div>
       <div className="country-details">
         <p className="area">
-          Área:
+          Surface:
           {areaInSqKm}
           {' '}
           km²
         </p>
         <p className="continent">
-          Continente:
+          Continent:
           {continentName}
         </p>
         <p className="population">
-          Población:
+          Population:
           {population}
         </p>
       </div>

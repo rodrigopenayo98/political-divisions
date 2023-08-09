@@ -46,7 +46,7 @@ function PoliticalDivisions({ geonameId }) {
           </ul>
         </div>
       ) : (
-        <p>No hay datos de provincia disponibles.</p>
+        <p>No political divisions were found for this country or state.</p>
       )}
     </div>
   );
