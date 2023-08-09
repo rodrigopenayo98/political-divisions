@@ -12,19 +12,23 @@ function CountriesList() {
   return (
     <section>
       <ul>
-        {countries?.countriesArr.map((country, index) => (
-          <Country
-            key={country.geonameId}
-            geonameId={country.geonameId}
-            index={index}
-            countryName={country.countryName}
-            countryCode={country.countryCode}
-            currencyCode={country.currencyCode}
-            areaInSqKm={country.areaInSqKm}
-            continentName={country.continentName}
-            population={country.population}
-          />
-        ))}
+        {countries?.countriesArr
+          .filter(({ countryName }) => countryName
+            .toUpperCase()
+            .includes(countries.searchString.toUpperCase()))
+          .map((country, index) => (
+            <Country
+              key={country.geonameId}
+              geonameId={country.geonameId}
+              index={index}
+              countryName={country.countryName}
+              countryCode={country.countryCode}
+              currencyCode={country.currencyCode}
+              areaInSqKm={country.areaInSqKm}
+              continentName={country.continentName}
+              population={country.population}
+            />
+          ))}
       </ul>
     </section>
   );
