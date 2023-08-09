@@ -13,7 +13,7 @@ header {
   justify-content: space-between;
   width: 100%;
   background-color: rgb(11, 203, 145);
-  height: 60px;
+  height: 80px;
 }
 
 header a {
@@ -60,8 +60,9 @@ header a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 80px;
   background-color: rgb(3, 129, 91);
+  width: 100%;
 }
 
 .input-countries{
@@ -69,7 +70,7 @@ header a {
   color: aliceblue;
   border: 2px solid white;
   border-radius: 5px;
-  width: 250px;
+  width: 290px;
   height: 20px;
   padding: 5px;
 }
@@ -90,10 +91,13 @@ header a {
 .country-card {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 175px;
+  min-width: 175px;
+  max-width: 50%;
   display: flex;
   padding: 5px;
   height: 95px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .country-info{
@@ -143,6 +147,9 @@ section ul{
   font-family: 'Lato', sans-serif;
   font-size: 10px;
   text-decoration: none;
+  background-color: rgb(47, 46, 46);
+  padding: 1.5px;
+  border-radius: 6px;
 }
 
 .country-details{
