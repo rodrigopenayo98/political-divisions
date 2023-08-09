@@ -5,7 +5,7 @@ import getFlagImageUrl from './Flags';
 
 function Country({
   geonameId,
-  countryCode, // Cambia countryCode a la variable directamente
+  countryCode,
   countryName,
   currencyCode,
   areaInSqKm,
@@ -14,34 +14,54 @@ function Country({
   index,
 }) {
   const differentStyle = index % 4 === 1 || index % 4 === 2;
-  const style = differentStyle ? 'bg-blue-3' : 'bg-blue-4';
+  const style = differentStyle ? 'bg-green-3' : 'bg-green-4';
 
-  const flagImageUrl = getFlagImageUrl(countryCode); // Usa countryCode directamente
-  console.log('imagen en Country', flagImageUrl);
-  return (
-    <NavLink className={`country-card ${style}`} to={`country/${geonameId}`}>
-      <div className="country-info">
-        <img className="country-image" src={flagImageUrl} alt={countryName} />
-        <p className="country-name">{countryName}</p>
-        <p className="currency-code">{currencyCode}</p>
-      </div>
-      <div className="country-details">
-        <p className="area">
-          Surface:
-          {areaInSqKm}
-          {' '}
-          km²
-        </p>
-        <p className="continent">
-          Continent:
-          {continentName}
-        </p>
-        <p className="population">
-          Population:
-          {population}
-        </p>
-      </div>
+  const flagImageUrl = getFlagImageUrl(countryCode);
+
+  const firstElement = (
+    <NavLink className="country-info" to={`country/${geonameId}`}>
+      <img className="country-image" src={flagImageUrl} alt={countryName} />
+      <p className="country-name">{countryName}</p>
+      <p className="currency-code">{currencyCode}</p>
     </NavLink>
+  );
+
+  const secondElement = (
+    <div className="country-details">
+      <p className="area">
+        Surface:
+        {' '}
+        {areaInSqKm}
+        km²
+        {' '}
+      </p>
+      <p className="continent">
+        Continent:
+        {' '}
+        {continentName}
+      </p>
+      <p className="population">
+        Population:
+        {' '}
+        {population}
+      </p>
+    </div>
+  );
+
+  return (
+    <div className={`country-card ${style}`}>
+      {index % 2 === 0 ? (
+        <>
+          {firstElement}
+          {secondElement}
+        </>
+      ) : (
+        <>
+          {firstElement}
+          {secondElement}
+        </>
+      )}
+    </div>
   );
 }
 

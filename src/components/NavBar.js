@@ -8,7 +8,7 @@ const Navbar = () => (
     <NavLink to="/">
       <div className="see-all-container">
         <IoChevronBack className="arrow-left" />
-        <p>See all</p>
+        <p>SEE ALL</p>
       </div>
     </NavLink>
     <h1 className="main-title">POLITICAL-DIVISIONS</h1>
