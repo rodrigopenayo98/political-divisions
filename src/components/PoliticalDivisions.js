@@ -6,6 +6,8 @@ import getFlagImageUrl from './Flags';
 function PoliticalDivisions({ geonameId }) {
   const [provinceData, setProvinceData] = useState([]);
   const [countryName, setCountryName] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const urlProvinces = `http://api.geonames.org/childrenJSON?geonameId=${geonameId}&username=rodrigopenayo98`;
@@ -13,40 +15,55 @@ function PoliticalDivisions({ geonameId }) {
     axios.get(urlProvinces)
       .then((response) => {
         if (response.data.geonames && response.data.geonames.length > 0) {
-          setCountryName(response.data.geonames[0].countryName); // Set country name
-          setProvinceData(response.data.geonames.slice(1)); // Exclude the country from provinceData
+          setCountryName(response.data.geonames[0].countryName);
+          setProvinceData(response.data.geonames.slice(1));
+        } else {
+          setError(true);
         }
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching province data:', error);
+        setError(true);
+        setLoading(false);
       });
   }, [geonameId]);
 
   return (
     <div>
-      {provinceData.length > 0 ? (
-        <div>
-          <h2>
-            <img src={getFlagImageUrl(provinceData[0].countryCode)} alt="country-flag" className="flag2" />
-            {countryName}
-          </h2>
-          {/* Display country name */}
-          <ul>
-            {provinceData.map((province) => (
-              <li key={province.geonameId}>
-                Province / State:
-                {' '}
-                {province.toponymName}
-                <br />
-                Population:
-                {' '}
-                {province.population}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {loading ? (
+        <p className="span2">Loading...</p>
       ) : (
-        <p>No political divisions were found for this country or state.</p>
+        <div>
+          {error ? (
+            <p className="error-message">
+              No political divisions were found
+              <br />
+              for this country or state.
+            </p>
+          ) : (
+            <div>
+              <h2 className="title-provinces-container">
+                <img src={getFlagImageUrl(provinceData[0].countryCode)} alt="country-flag" className="flag2" />
+                {countryName}
+              </h2>
+              {/* Display country name */}
+              <ul className="provinces-list">
+                {provinceData.map((province) => (
+                  <li key={province.geonameId} className="item-province">
+                    Province / State:
+                    {' '}
+                    {province.toponymName}
+                    <br />
+                    Population:
+                    {' '}
+                    {province.population}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

@@ -8,7 +8,7 @@ const SpecificCountry = () => {
   const countries = useSelector((store) => store.countries);
 
   if (!countries || countries.status === StatusType.LOADING) {
-    return <span>Cargando...</span>;
+    return <span className="span2">Cargando...</span>;
   }
 
   return <CountrySection geonameId={geonameId} />;
