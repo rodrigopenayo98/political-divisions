@@ -29,7 +29,7 @@
 
 This is an application developed to be able to learn the provinces, states or communes of all the countries around the world, it also has other characteristics such as the population.
 
-   ### [Video]((https://www.youtube.com/watch?v=PxqIlrO7MDM))
+   ### [Video](https://www.youtube.com/watch?v=PxqIlrO7MDM)
 
 ## 🛠️ Built With <a name="built-with"></a>
 
