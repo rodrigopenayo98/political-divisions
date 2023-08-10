@@ -1,29 +1,229 @@
-.country-card{
-  display: flex;
-  border: solid 1px black;
-  background-color: bisque;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.country-info{
-  width: 250px;
-  padding: 15px;
-  background-color: bisque;
+body {
+  background-color: rgb(125, 123, 123);
 }
 
-.country-details{
-  background-color: bisque;
-}
-
-.country-image{
-  width: 170px;
-}
-
-header{
+header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
+  height: 80px;
+}
+
+header a {
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+}
+
+.see-all-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.see-all-container p {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.flag2 {
+  width: 150px;
+}
+
+.main-title {
+  font-family: 'Lato', sans-serif;
+  color: aliceblue;
+  font-size: 20px;
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.form-countries {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: rgb(84, 83, 83);
   width: 100%;
 }
 
-.flag2{
-  width: 150px;
+.input-countries {
+  background-color: rgb(84, 83, 83);
+  color: aliceblue;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 290px;
+  height: 20px;
+  padding: 5px;
+}
+
+.input-countries::placeholder {
+  color: aliceblue;
+}
+
+.text-results-countries {
+  height: 20px;
+  padding: 5px 0 5px 20px;
+  background-color: rgb(125, 123, 123);
+  font-family: 'Lato', sans-serif;
+  color: aliceblue;
+  font-weight: 700;
+}
+
+.country-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  min-width: 175px;
+  max-width: 100%;
+  display: flex;
+  padding: 5px;
+  height: 95px;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 0.5px solid rgb(133, 133, 133);
+  border-radius: 3px;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.country-card a {
+  text-decoration: none;
+}
+
+.bg-green-3 {
+  background-color: rgb(84, 83, 83);
+}
+
+.bg-green-3 div {
+  background-color: rgb(84, 83, 83);
+}
+
+.bg-green-4 div {
+  background-color: rgb(125, 123, 123);
+}
+
+.bg-green-4 {
+  background-color: rgb(125, 123, 123);
+}
+
+section ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: auto;
+  list-style: none;
+}
+
+.country-image {
+  width: 90px;
+}
+
+.country-name {
+  color: aliceblue;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.currency-code {
+  color: aliceblue;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  text-decoration: none;
+  background-color: rgb(47, 46, 46);
+  padding: 1.5px;
+  border-radius: 6px;
+}
+
+.country-details {
+  color: aliceblue;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  text-decoration: none;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loading-span {
+  color: aliceblue;
+  font-family: 'Lato', sans-serif;
+  font-size: 30px;
+  padding-top: 95px;
+  margin-left: 150px;
+  text-align: center;
+}
+
+.title-provinces-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  background-color: aliceblue;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 38px;
+}
+
+.item-province {
+  height: 30px;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.provinces-list li:nth-child(odd) {
+  background-color: aliceblue;
+}
+
+.provinces-list li:nth-child(even) {
+  background-color: rgb(69, 68, 68);
+  color: aliceblue;
+}
+
+.error-message {
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  padding-top: 95px;
+  text-align: center;
+}
+
+.span2 {
+  color: aliceblue;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  padding-top: 95px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
