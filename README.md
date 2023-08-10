@@ -173,7 +173,8 @@ If you like this project give a star
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 
-We would like to thank Microverse community.
+- We would like to thank Microverse community.
+- I'd also like to thank [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) for the design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
