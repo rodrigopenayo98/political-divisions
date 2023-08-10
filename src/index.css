@@ -61,23 +61,26 @@ header a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
+  height: 280px;
   background-color: rgb(84, 83, 83);
   width: 100%;
+  background-image: url('../public/bg-capstone-react.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .input-countries {
-  background-color: rgb(84, 83, 83);
-  color: aliceblue;
+  color: black;
   border: 2px solid white;
-  border-radius: 5px;
   width: 290px;
   height: 20px;
   padding: 5px;
+  border-radius: 15px;
+  opacity: 0.8;
 }
 
 .input-countries::placeholder {
-  color: aliceblue;
+  color: black;
 }
 
 .text-results-countries {
@@ -184,11 +187,14 @@ section ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 180px;
+  height: 280px;
   background-color: aliceblue;
-  color: black;
+  color: aliceblue;
   font-family: 'Lato', sans-serif;
   font-size: 38px;
+  background-image: url('../public/bg-capstone-react2.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .item-province {
