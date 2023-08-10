@@ -83,7 +83,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  cd plitical-divisions
+  cd political-divisions
 
   git clone https://github.com/rodrigopenayo98/political-divisions.git
 
