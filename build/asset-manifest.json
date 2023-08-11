@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6787823f.css",
+    "main.js": "/static/js/main.bbdb399f.js",
+    "static/media/bg-capstone-react2.jpg": "/static/media/bg-capstone-react2.43a3bf13b1bb7a1e6fa7.jpg",
+    "static/media/bg-capstone-react.jpg": "/static/media/bg-capstone-react.6a6d57eb0ecdb9906419.jpg",
+    "index.html": "/index.html",
+    "main.6787823f.css.map": "/static/css/main.6787823f.css.map",
+    "main.bbdb399f.js.map": "/static/js/main.bbdb399f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6787823f.css",
+    "static/js/main.bbdb399f.js"
+  ]
+}

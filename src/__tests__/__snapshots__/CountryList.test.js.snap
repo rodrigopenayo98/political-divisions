@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountriesList component snapshot 1`] = `
+<section>
+  <ul>
+    <li>
+      <div
+        className="country-card bg-green-4"
+      >
+        <a
+          className="country-info"
+          href="/country/1"
+          onClick={[Function]}
+        >
+          <img
+            alt="United States"
+            className="country-image"
+            src="https://flagcdn.com/us.svg"
+          />
+          <p
+            className="country-name"
+          >
+            United States
+          </p>
+          <p
+            className="currency-code"
+          >
+            USD
+          </p>
+        </a>
+        <div
+          className="country-details"
+        >
+          <p
+            className="area"
+          >
+            Superficie:
+             
+            9372610
+             
+            km²
+          </p>
+          <p
+            className="continent"
+          >
+            Continente:
+             
+            North America
+          </p>
+          <p
+            className="population"
+          >
+            Población:
+             
+            331002651
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+`;
