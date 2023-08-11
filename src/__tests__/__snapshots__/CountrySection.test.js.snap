@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountrySection component renders correctly with a geonameId 1`] = `
+<div>
+  <div>
+    <p
+      className="span2"
+    >
+      Loading...
+    </p>
+  </div>
+</div>
+`;
